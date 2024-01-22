@@ -58,6 +58,7 @@ export default class RestrictPagesApplicationCustomizer
 	public onInit(): Promise<void> {
 		Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
 		this.sp = getSP(this.context);
+		console.log(this.sp);
 		this.context.placeholderProvider.changedEvent.add(this, this.startReactRender);
 		this.render();
 		return Promise.resolve();
