@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.17.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.18.0",
+    "libraryName": "sp-fx-extn-demos",
+    "libraryId": "20ffe17c-c28b-46c0-accc-235d904a20dc",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "SPFx-Extn-Demos",
+    "solutionShortDescription": "SPFx-Extn-Demos description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ApplicationCustomizer"
+  }
+}

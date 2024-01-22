@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="RestrictPages"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ClientSideComponentId="eca0ba98-ffa4-424f-ab17-d8367af25cd9"
+        ClientSideComponentProperties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </CustomAction>
+</Elements>

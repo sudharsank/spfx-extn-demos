@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/spfx-serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "ipAddress": "0.0.0.0",
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://m365devpractice.sharepoint.com/sites/ModernApps/_layouts/15/viewlsts.aspx",
+      "customActions": {
+        "eca0ba98-ffa4-424f-ab17-d8367af25cd9": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "restrictPages": {
+      "pageUrl": "https://{tenantDomain}/SitePages/myPage.aspx",
+      "customActions": {
+        "eca0ba98-ffa4-424f-ab17-d8367af25cd9": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  }
+}
