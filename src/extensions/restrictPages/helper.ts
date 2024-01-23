@@ -1,5 +1,6 @@
 import { SPFI } from '@pnp/sp';
 import { useCallback } from 'react';
+import { filter } from 'lodash';
 import { Navigation } from 'spfx-navigation';
 
 export const useHelper = (sp: SPFI) => {
@@ -16,17 +17,15 @@ export const useHelper = (sp: SPFI) => {
 
 	const getValueFromArray = (arr: any[], key: string, valToCheck: string, returnKey: string): any => {
 		if (arr && arr.length > 0) {
-			// let fil: any[] = filter(arr, (o: any) => { return o[key].toLowerCase() == valToCheck.toLowerCase(); });
-			// if (fil && fil.length > 0) {
-			// 	return fil[0][returnKey];
-			// }
+			let fil: any[] = filter(arr, (o: any) => { return o[key].toLowerCase() == valToCheck.toLowerCase(); });
+			if (fil && fil.length > 0) {
+				return fil[0][returnKey];
+			}
 		}
 		return '';
 	};
 
 	const openURL = (url: string, newTab: boolean): void => {
-		// if (newTab) window.open(url, newTab ? '_blank' : '');
-		// else window.location.href = url;
 		if (newTab) window.open(url, newTab ? '_blank' : '');
 		else Navigation.navigate(url, false);
 	};

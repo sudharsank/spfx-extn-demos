@@ -29,25 +29,25 @@ const dialogContentProps: IDialogContentProps = {
 };
 
 const RedirectToHome: React.FC<IRedirectToHomeProps> = (props: IRedirectToHomeProps) => {
-	const { getSettings } = useHelper(props.sp);
+	const { getSettings, getValueFromArray, openURL } = useHelper(props.sp);
 	const [hideDialog, setHideDialog] = useState<boolean>(false);
 
 	const _closeDialog = () => setHideDialog(true);
 
 	const checkForRedirect = async () => {
 		const settings = await getSettings();
-		console.log("settings", settings);
-		// let pagesToRestrict: string = getValueFromArray(settings, "Title", "RedirectPages", "ConfigValue");
-		// let homePage: string = getValueFromArray(settings, "Title", "HomePage", "ConfigValue");
-		// let allowedUsers: string = getValueFromArray(settings, "Title", "RPAllowedUsers", "ConfigValue");
-		// pagesToRestrict.split(',').forEach((page) => {
-		// 	if (window.location.pathname.toLowerCase().indexOf(page.toLowerCase()) > -1) {
-		// 		if (allowedUsers.indexOf(props.currentUser) < 0) {
-		// 			_closeDialog();
-		// 			openURL(homePage, false);
-		// 		}
-		// 	} else _closeDialog();
-		// });
+		console.log("Current User: ", props.currentUser);
+		let pagesToRestrict: string = getValueFromArray(settings, "Title", "RedirectPages", "ConfigValue");
+		let homePage: string = getValueFromArray(settings, "Title", "HomePage", "ConfigValue");
+		let allowedUsers: string = getValueFromArray(settings, "Title", "RPAllowedUsers", "ConfigValue");
+		pagesToRestrict.split(',').forEach((page) => {
+			if (window.location.pathname.toLowerCase().indexOf(page.toLowerCase()) > -1) {
+				if (allowedUsers.indexOf(props.currentUser) < 0) {
+					_closeDialog();
+					openURL(homePage, false);
+				}
+			} else _closeDialog();
+		});
 	};
 
 	useEffect(() => {
